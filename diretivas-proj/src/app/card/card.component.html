@@ -1,0 +1,47 @@
+<h1 [ngStyle]="{'background': corFundo, 'color': corFonte}">TARCISIO</h1>
+<h2 [ngClass]="estilo">COLORIR</h2>
+<button (click)="trocarCor()">Mudar cor</button>
+<h1 *ngIf="esconder; else oi">My app</h1>
+<ng-template #oi> <p>Olá </p></ng-template>
+<button (click)="ocultar()">Ocultar</button>
+
+<h1>Lista de compras</h1>
+<input type="text" [(ngModel)]="item">
+<p>{{item}}</p>
+<button (click)="adicionarLista()">ADICIONAR NA LISTA</button>
+<ul>
+  <li *ngFor="let item of listaCompras">
+      {{item}}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let p of produtos; let i = index" (click)="remover(i)">{{i}} , {{p}}</li>
+</ul>
+<button (click)="adicionar()">adicionar</button>
+
+<div [ngSwitch]="menuType">
+  <div *ngSwitchCase="'user'">
+    <ul>
+      <li>Editar perfil</li>
+      <li>Adicionar cartão</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'admin'">
+    <ul>
+      <li>Editar perfil</li>
+      <li>Adicionar cartão</li>
+      <li>Gerenciar usuario</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'superuser'">
+    <ul>
+      <li>Editar perfil</li>
+      <li>Adicionar cartão</li>
+      <li>Gerenciar usuario</li>
+      <li>Gerenicar admin</li>
+    </ul>
+  </div>
+
+
+</div>
